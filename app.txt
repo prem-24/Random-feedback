@@ -1,0 +1,51 @@
+const name = "Javid";
+    const age = 26;
+
+    const users = [
+        {id:1, name:"Jagan"},
+        {id:2, name:"Akash"},
+        {id:3, name:"Arun"},
+    ]
+
+    const loading = false;
+
+    const showUser = true;
+
+    const arrayUser = (
+        <ul>
+        {users.map((user, index) => (
+            <li key={index}>{user.name}</li>
+        ))}
+      </ul>
+    );
+
+    if(loading) return <h1>Loading...</h1>
+
+    return (
+        <div className="container">
+             <h1>{name.toUpperCase()}</h1>
+             <p>{age}</p>
+             <p>{ 5 + 5 }</p>
+
+             {/* {showUser ? "Yes" : "No"} */}
+
+
+            <div className='users'>
+              {/* <h3>Users ({users.length})</h3>
+
+              {showUser ? (
+                <ul>
+
+                {users.map((user, index) => (
+                    <li key={index}>{user.name}</li>
+                ))}
+              </ul>
+              ): null} */}
+
+              {/* {showUser ? arrayUser : null} */}
+
+              {showUser && arrayUser}
+            </div>
+
+        </div>
+    )

@@ -1,0 +1,39 @@
+
+function RatingSelect() {
+
+  const array = [
+    "Bad (1/5)",
+    "So-so (2/5)",
+    "Ok (3/5)",
+    "Good (4/5)",
+    "Great (5/5)",
+  ]
+
+  return (
+    <ul className='rating'>
+      {array.map((label, index) => (
+        <li key={`rating-${index + 1}`}>
+          <input
+            type='radio'
+            id={`num${index + 1}`}
+            name='rating' // Set the same name for all radio inputs
+            value={index + 1}
+            onChange={(e) => console.log(e.target)}
+            checked={selected === index + 1}
+          />
+          <label htmlFor={`num${index + 1}`}>
+            {selected ? (
+              <i className="fa fa-solid fa-star"></i>
+            ) : (
+              <i className="fa fa-regular fa-star"></i>
+            )}
+          </label>
+          <span>{label}</span>
+          <div className="line"></div>
+        </li>
+      ))}
+    </ul>
+  )
+}
+
+export default RatingSelect;
